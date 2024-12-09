@@ -6,7 +6,7 @@ import "../App.css";
 const Home = () => {
   return (
     <div className="home px-6 py-10">
-      <div className="bg-[#e0d2c3] h-[70px] w-[50%] mx-auto flex justify-center items-center rounded-lg shadow-md mb-10">
+      <div className="bg-[#e0d2c3] h-[60px] w-[50%] mx-auto flex justify-center items-center rounded-lg shadow-lg mb-10">
         <h1 className="text-center text-3xl font-bold text-black">
             {"computer science chronicles"}
         </h1>
