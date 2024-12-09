@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { posts } from '../posts';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase'; // Ensure the path to your Firebase configuration is correct
 
 const Post = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const post = posts.find((post) => post.id === parseInt(id));
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        // Fetch the document from Firestore
+        const docRef = doc(db, 'posts', id); // Assuming `id` is the Firestore document ID
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setPost(docSnap.data());
+        } else {
+          console.error('Post not found');
+        }
+      } catch (error) {
+        console.error('Error fetching post:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-2xl font-bold text-gray-700">Loading post...</p>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -20,7 +52,7 @@ const Post = () => {
       {/* Notion-like Cover */}
       <div className="w-full h-64 mb-6">
         <img
-          src="https://i.pinimg.com/736x/97/f1/b7/97f1b7aadb7cb7df20993d5d1e588946.jpg"
+          src={'https://i.pinimg.com/736x/97/f1/b7/97f1b7aadb7cb7df20993d5d1e588946.jpg'} // Fallback image
           alt={post.title}
           className="w-full h-full object-cover rounded-lg"
         />
