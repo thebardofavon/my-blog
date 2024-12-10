@@ -19,7 +19,7 @@ const About = () => {
         </h1>
         <div className="flex flex-col sm:flex-row items-center mb-4 sm:mb-6 animate-fade-in opacity-0 transition-opacity duration-1000">
           <img
-            src="src/assets/Hinazuki Kayo.jpg"
+            src="https://i.imgur.com/cPm0hci.jpeg"
             alt="Hinazuki Kayo"
             className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-brown-500 mb-4 sm:mb-0 sm:mr-6"
           />
