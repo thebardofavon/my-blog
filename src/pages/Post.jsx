@@ -59,13 +59,17 @@ const Post = () => {
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">{post.title}</h1>
         <p className="text-sm text-gray-500 mb-6">{post.date}</p>
+
         <div className="text-lg text-gray-700 leading-relaxed">
-          <p>{post.content}</p>
+          {post.content.split('#').map((paragraph, index) => (
+            <p key={index} className="mb-4">{paragraph}</p>
+          ))}
         </div>
+
         <div className="mt-10">
           <button
             onClick={() => navigate(-1)}
-            className="px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition"
+            className="px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition mb-4"
           >
             Go Back
           </button>

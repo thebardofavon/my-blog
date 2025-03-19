@@ -64,12 +64,12 @@ const Home = () => {
                       {post.title}
                   </h2>
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                    {post.content.substring(0, 120)}...
+                    {post.content.replaceAll('#','').substring(0, 120)}...
                   </p>
                   <div className="flex justify-between items-center">
                     <span className="text-xs text-gray-500">{post.date}</span>
                     <span className="text-white bg-brown-500 hover:bg-brown-700 px-3 py-1 rounded transition-all">
-                      Read More
+                      Read More``
                     </span>
                   </div>
                 </div>
