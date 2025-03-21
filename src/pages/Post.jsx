@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase'; 
+import Comments from '../components/Comments.jsx';
 
 const Post = () => {
   const { id } = useParams();
@@ -74,6 +75,7 @@ const Post = () => {
             Go Back
           </button>
         </div>
+        <Comments postId={id} />
       </div>
     </div>
   );
