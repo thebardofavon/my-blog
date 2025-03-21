@@ -70,7 +70,7 @@ const Post = () => {
         <div className="mt-10">
           <button
             onClick={() => navigate(-1)}
-            className="px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition mb-4"
+            className="px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition mb-2"
           >
             Go Back
           </button>
